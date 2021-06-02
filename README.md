@@ -18,4 +18,4 @@ Your algorithm should be as efficient as possible.
 Analyse the running time of your algorithm and discuss whether it is optimal.
 
 ### Solution:
-you can check the result in file <a href="https://github.com/SuperBluestar/python-algorithms/edit/main/getWays">getWays</a>.
+you can check the result in <a href="https://github.com/SuperBluestar/python-algorithms/edit/main/getWays">getWays</a>.
