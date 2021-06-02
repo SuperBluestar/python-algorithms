@@ -1,0 +1,44 @@
+def getWays(magic_number, numbers):
+    ops = util(numbers, 0, magic_number, [])
+    if (len(ops) > 0):
+        return ops
+    return []
+
+
+def util(numbers, i, magic_number, op_array = []):
+    n = len(numbers)
+
+    if i == n and magic_number != 0:
+        return []
+
+    if magic_number == 0 and i == n:
+        return ['*']
+    
+    arr = util(numbers, i + 1, magic_number - numbers[i], op_array + ['+'])
+    if 0 < len(arr):
+        return ['+'] + arr
+    else:
+        arr = util(numbers, i + 1, magic_number + numbers[i], op_array + ['-'])
+        if 0 < len(arr):
+            return ['-'] + arr
+        else:
+            return []
+
+
+def f(num_arr, magic_val):
+    op_arr = getWays(magic_val, num_arr)
+    if (len(op_arr) > 0):
+        result = ""
+        for i in list(range(len(num_arr))):
+            if i != 0 or op_arr[i] != '+':
+                result += str(op_arr[i])
+                result += ' '
+            result += str(num_arr[i])
+            result += ' '
+        print(str(magic_val) + ' = ' + result)
+    else:
+        print("None")
+
+f([1, 2, 3, 4, 5], 9)
+f([2, 5, 60, -5, 3], 69)
+f([2, 5, 10], 50)
